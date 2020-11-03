@@ -11,12 +11,12 @@ pipeline{
  //               load "/home/jenkins/.envvars/env-vars.groovy"
                 sh '''
                 ssh $USER@$VM << EOF
-                if [ -d "sfia-3" ]
+                if [ -d "blackjack-exercise" ]
                 then
-                rm -r sfia-3 --force
-                git clone https://github.com/georgepemberton1998/sfia-3.git
+                rm -r blackjack-exercise --force
+                git clone https://github.com/keenan218/blackjack-exercise.git
                 else
-                git clone https://github.com/georgepemberton1998/sfia-3.git
+                git clone https://github.com/keenan218/blackjack-exercise.git
                 fi
                 >> EOF
                 '''

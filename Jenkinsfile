@@ -9,7 +9,7 @@ pipeline{
         stage('Set up') {
             steps {
                 //this may not be required, depends if we need a test vm
-                load "/home/jenkins/.envvars/env-vars.groovy"
+ //               load "/home/jenkins/.envvars/env-vars.groovy"
                 sh '''
                 ssh $USER@$VM << EOF
                 if [ -d "blackjack-exercise" ]

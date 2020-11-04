@@ -55,7 +55,12 @@ pipeline{
                 sudo chmod +x /usr/local/bin/docker-compose
                 sudo usermod -aG docker ubuntu
                 
+                pwd
+                
                 cd blackjack-exercise
+                
+                pwd
+                
                 export app_version = $app_version
                 docker-compose up -d --build 
                 >> EOF

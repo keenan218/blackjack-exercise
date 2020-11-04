@@ -49,12 +49,11 @@ pipeline{
                 sh '''
                 ssh $USER@$VM <<EOF
                 
-                sudo apt update
                 curl https://get.docker.com | sudo bash
+                sudo apt update -y && sudo apt install -y curl jq
                 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
                 sudo chmod +x /usr/local/bin/docker-compose
-                sudo usermod -aG docker $(whoami)
-                newgrp docker
+                sudo usermod -aG docker ubuntu
                 
                 cd blackjack-exercise
                 export app_version = $app_version

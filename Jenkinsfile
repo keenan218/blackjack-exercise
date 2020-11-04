@@ -4,7 +4,7 @@ pipeline{
         app_version = 'v1'
         rollback = 'false'
     }
-    stages {
+    stages { /*
         stage('Set up') {
             steps {
                 //this may not be required, depends if we need a test vm
@@ -24,7 +24,7 @@ pipeline{
                 '''
             }
         }
-/*        stage('Build images') {
+8        stage('Build images') {
             steps{
                 script {
                     if (env.rollback == 'false') {
@@ -45,7 +45,7 @@ pipeline{
                     }                 
                 }
             }
-        } */
+        } 
         stage('Deploy app') {
             steps { 
                 sh '''
@@ -68,15 +68,15 @@ pipeline{
                 >> EOF
                 '''
             }
-        }
-/*        stage('Production deploy') {
+        }*/
+        stage('Production deploy') {
             steps {
-              //  load "/home/jenkins/.envvars/env-vars-prod.groovy"
+              
                 sh '''
                 kubectl apply -f /kubernetes
                 '''
             }
 
-        }*/
+        }
     }
 }

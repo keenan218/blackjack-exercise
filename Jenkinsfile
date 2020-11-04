@@ -47,8 +47,8 @@ pipeline{
         stage('Deploy app') {
             steps { 
                 sh '''
-                ssh -tty -o StrictHostKeyChecking=no $USER@$VM << EOF
-                cd sfia-3
+                ssh $USER@$VM <<EOF
+                cd blackjack-exercise
                 export app_version = $app_version
                 docker-compose up -d --build 
                 >> EOF

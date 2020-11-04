@@ -60,7 +60,7 @@ pipeline{
                 cd blackjack-exercise
                 
                 pwd
-                
+                ls -a
                 export app_version = $app_version
                 docker-compose up -d --build 
                 >> EOF

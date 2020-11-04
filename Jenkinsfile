@@ -18,7 +18,7 @@ pipeline{
                 else
                 git clone https://github.com/keenan218/blackjack-exercise.git
                 fi
-                EOF
+                >>EOF
                 '''
             }
         }

@@ -19,6 +19,7 @@ pipeline{
                 git clone https://github.com/keenan218/blackjack-exercise.git
                 fi
                 git checkout development
+                ls -a
                 >>EOF
                 '''
             }
@@ -59,10 +60,10 @@ pipeline{
                 pwd
                 
                 cd blackjack-exercise
-                
+                git checkout development 
                 pwd
                 ls -a
-                export app_version = $app_version
+                
                 docker-compose up -d --build 
                 >> EOF
                 '''

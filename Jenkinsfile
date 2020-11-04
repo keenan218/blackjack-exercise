@@ -4,11 +4,9 @@ pipeline{
         app_version = 'v1'
         rollback = 'false'
     }
-    stages { /*
+    stages { 
         stage('Set up') {
             steps {
-                //this may not be required, depends if we need a test vm
- //               load "/home/jenkins/.envvars/env-vars.groovy"
                 sh '''
                 ssh $USER@$VM <<EOF
                 if [ -d "blackjack-exercise" ]
@@ -24,7 +22,7 @@ pipeline{
                 '''
             }
         }
-8        stage('Build images') {
+        stage('Build images') {
             steps{
                 script {
                     if (env.rollback == 'false') {
@@ -68,7 +66,7 @@ pipeline{
                 >> EOF
                 '''
             }
-        }*/
+        }
         stage('Production deploy') {
             steps {
               

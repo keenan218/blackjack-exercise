@@ -77,7 +77,7 @@ pipeline{
                 ls
                 
                 
-                kubectl apply -f /kubernetes
+                kubectl apply -f ./kubernetes
                 '''
             }
 

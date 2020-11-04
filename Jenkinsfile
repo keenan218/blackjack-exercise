@@ -10,7 +10,7 @@ pipeline{
                 //this may not be required, depends if we need a test vm
  //               load "/home/jenkins/.envvars/env-vars.groovy"
                 sh '''
-                ssh -tty -o StrictHostKeyChecking=no $USER@$VM << EOF
+                ssh -tty -o StrictHostKeyChecking=no $USER@$VM <<EOF
                 if [ -d "blackjack-exercise" ]
                 then
                 rm -r blackjack-exercise --force
@@ -18,7 +18,7 @@ pipeline{
                 else
                 git clone https://github.com/keenan218/blackjack-exercise.git
                 fi
-                >> EOF
+                EOF
                 '''
             }
         }

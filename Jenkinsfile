@@ -74,9 +74,13 @@ pipeline{
               
                 sh '''
                 pwd
+                ls
                 
                 cd blackjack-exercise
                 git checkout development
+                
+                pwd
+                ls
                 
                 kubectl apply -f /kubernetes
                 '''

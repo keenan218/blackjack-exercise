@@ -12,12 +12,12 @@ pipeline{
                 load "/home/jenkins/.envvars/env-vars.groovy"
                 sh '''
                 ssh $USER@$VM << EOF
-                if [ -d "sfia-3" ]
+                if [ -d "blackjack-exercise" ]
                 then
-                rm -r sfia-3 --force
-                git clone https://github.com/georgepemberton1998/sfia-3.git
+                rm -r blackjack-exercise --force
+                git clone https://github.com/keenan218/blackjack-exercise.git
                 else
-                git clone https://github.com/georgepemberton1998/sfia-3.git
+                git clone https://github.com/keenan218/blackjack-exercise.git
                 fi
                 >> EOF
                 '''
@@ -27,7 +27,7 @@ pipeline{
             steps { 
                 sh '''
                 ssh $USER@$VM << EOF
-                cd sfia-3
+                cd blackjack-exercise
                 docker-compose up -d --build 
                 >> EOF
                 '''
@@ -37,7 +37,7 @@ pipeline{
             steps { 
                 sh '''
                 ssh $USER@$VM << EOF
-                cd sfia-3
+                cd blackjack-exercise
                 export DB_USERNAME = $DB_USERNAME
                 export DB_PASSWORD = $DB_PASSWORD
                 export DB_URL = $DB_URL
@@ -75,7 +75,7 @@ pipeline{
             steps {
               //  load "/home/jenkins/.envvars/env-vars-prod.groovy"
                 sh '''
-                cd && cd sfia-3
+                cd && cd blackjack-exercise
                 cd kubernetes
                 kubectl apply -f config-map.yaml
                 kubectl apply -f backend.yaml

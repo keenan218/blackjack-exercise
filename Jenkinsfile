@@ -73,15 +73,18 @@ pipeline{
                 sudo snap install kubectl --classic       
                 
                 aws eks --region eu-west-2 update-kubeconfig --name project-cluster
-                
+                kubectl delete -f ./kubernetes
                 kubectl apply -f ./kubernetes
                 
-                sleep 60
+                sleep 30
                 kubectl get pods
                 kubectl get services
                 sleep 30
                 kubectl get pods 
                 kubectl get services 
+                sleep 30
+                kubectl get pods
+                kubectl get services
                 '''
             }
         }

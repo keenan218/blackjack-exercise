@@ -75,7 +75,7 @@ pipeline{
                 aws configure set aws_secret_access_key $secret_key
                 aws configure set default.region eu-west-2
                 
-                sudo snap kubectl --classic                
+                sudo snap install kubectl --classic                
                 aws eks --region eu-west-2 update-kubeconfig --name project-cluster
                 kubectl apply -f ./kubernetes
                 '''

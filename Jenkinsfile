@@ -22,7 +22,7 @@ pipeline{
                 '''
             }
         }
-        stage('Build images') {
+   /*     stage('Build images') {
             steps{
                 script {
                     if (env.rollback == 'false') {
@@ -43,7 +43,7 @@ pipeline{
                     }                 
                 }
             }
-        } 
+        } */
         stage('Deploy app') {
             steps { 
                 sh '''

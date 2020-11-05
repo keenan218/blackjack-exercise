@@ -71,10 +71,12 @@ pipeline{
             steps {
               
                 sh '''
-                pwd
-                ls
+                aws configure set aws_access_key_id $access_key
+                aws configure set aws_secret_access_key $secret_key
+                aws configure set default.region eu-west-2
                 
-                
+                sudo snap kubectl --classic                
+                aws eks --region eu-west-2 update-kubeconfig --name project-cluster
                 kubectl apply -f ./kubernetes
                 '''
             }
